@@ -2,21 +2,17 @@
 console.log("main.js cargado");
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ==== MENÚ HAMBURGUESA ====
     console.log("DOM cargado");
-   
-    // Verifica que los elementos existan antes de agregar el evento
+
+    // ==== MENÚ HAMBURGUESA ====
     const hamburger = document.getElementById("hamburger");
     const sidebar = document.getElementById("sidebar");
-    console.log("hamburger:", hamburger);
-    console.log("sidebar:", sidebar);
 
     if (hamburger && sidebar) {
         hamburger.addEventListener("click", () => {
             sidebar.classList.toggle("active");
         });
 
-        // Cerrar el menú al hacer clic en cualquier enlace interno
         sidebar.querySelectorAll("a[href^='#']").forEach(link => {
             link.addEventListener("click", () => {
                 sidebar.classList.remove("active");
@@ -24,30 +20,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==== CARGA DE PRODUCTOS POR MARCA O CATEGORÍA ====
+    // ==== CARGA DE PRODUCTOS ====
     const path = window.location.pathname;
     const match = path.match(/\/productos\/(\w+)\.html$/); // Ej: productos/shampoos.html
+    const imgBase = path.includes("/productos/") ? "../img" : "img";
+    const contenedor = document.getElementById("product-list");
 
-    if (match) {
+    if (match && contenedor) {
         const marca = match[1];
         const productos = productosPorMarca?.[marca] || products?.[marca];
 
         if (productos) {
-            const contenedor = document.getElementById("product-list");
-
             productos.forEach((prod) => {
                 const card = document.createElement("div");
                 card.className = "categoria-card";
 
                 const img = document.createElement("img");
-                img.src = `../img/${marca}/${prod.imagen || 'placeholder.jpg'}`;
+                img.src = `${imgBase}/${marca}/${prod.imagen || 'placeholder.jpg'}`;
                 img.alt = prod.nombre;
 
                 const nombre = document.createElement("p");
                 nombre.textContent = prod.nombre;
 
                 const precio = document.createElement("p");
-                precio.textContent = `$${prod.precio || 0}`;
+                precio.textContent = `$${(prod.precio || 0).toLocaleString("es-AR")}`;
 
                 const boton = document.createElement("button");
                 boton.textContent = "Agregar al carrito";
@@ -67,6 +63,60 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // ==== PRODUCTOS DESTACADOS EN INDEX ====
+    const destacados = document.getElementById("destacados");
+    if (destacados) {
+        const destacadosList = products.shampoos.slice(0, 4); // Podés elegir otra categoría
+        destacadosList.forEach((prod) => {
+            const card = document.createElement("div");
+            card.className = "categoria-card";
+
+            const img = document.createElement("img");
+            img.src = `img/shampoos/${prod.imagen}`;
+            img.alt = prod.nombre;
+
+            const nombre = document.createElement("p");
+            nombre.textContent = prod.nombre;
+
+            const precio = document.createElement("p");
+            precio.textContent = `$${prod.precio.toLocaleString("es-AR")}`;
+
+            const boton = document.createElement("button");
+            boton.textContent = "Agregar al carrito";
+            boton.classList.add("btn-hero", "small");
+            boton.onclick = () => {
+                addToCart(prod.nombre, prod.precio);
+                alert(`"${prod.nombre}" agregado al carrito`);
+            };
+
+            card.appendChild(img);
+            card.appendChild(nombre);
+            card.appendChild(precio);
+            card.appendChild(boton);
+            destacados.appendChild(card);
+        });
+    }
+
+    // ==== BOTÓN FINALIZAR COMPRA (Simulado) ====
+    const finalizarBtn = document.getElementById("finalizarCompra");
+    if (finalizarBtn) {
+        finalizarBtn.addEventListener("click", () => {
+            const cart = getCart();
+            if (!cart.length) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+
+            const resumen = cart.map(item =>
+                `• ${item.nombre} x${item.cantidad} = $${(item.precio * item.cantidad).toLocaleString("es-AR")}`
+            ).join("\n");
+
+            const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+
+            alert(`Resumen de tu compra:\n\n${resumen}\n\nTotal: $${total.toLocaleString("es-AR")}`);
+        });
+    }
+
     // ==== ACTUALIZAR CONTADOR DEL CARRITO ====
     if (typeof updateCartCount === "function") {
         updateCartCount();
@@ -74,12 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ==== ANIMACIÓN FADE-IN AL SCROLLEAR ====
     const fadeElements = document.querySelectorAll(".fade-in");
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                observer.unobserve(entry.target); // solo una vez
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });

@@ -53,19 +53,25 @@
     </ul>
   </nav>
 
-  <!-- CARRUSEL -->
-  <section class="hero-slider">
-    <div class="slider-track" id="slider-track">
-      <img src="img/salon/salon_corte.jpeg" alt="Salon corte">
-      <img src="img/salon/peinado.jpg" alt="Salon peinado">
-      <img src="img/salon/salon_lavado.jpeg" alt="Salon Lavado">
-    </div>
-    <div class="slider-dots" id="slider-dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-    </div>
-  </section>
+<!-- CARRUSEL -->
+<section class="hero-slider">
+  <div class="slider-track" id="slider-track">
+    <img src="img/salon/salon_corte.jpeg" alt="Salon corte">
+    <img src="img/salon/peinado.jpg" alt="Salon peinado">
+    <img src="img/salon/salon_lavado.jpeg" alt="Salon Lavado">
+  </div>
+
+  <div class="slider-dots" id="slider-dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+
+  <!-- ✅ Botones de navegación -->
+  <button class="slider-btn prev" aria-label="Anterior" onclick="cambiarSlide(-1)">❮</button>
+  <button class="slider-btn next" aria-label="Siguiente" onclick="cambiarSlide(1)">❯</button>
+</section>
+
 
   <main>
     <section id="categorias" class="fade-in">
@@ -145,9 +151,12 @@
       </section>
       <section id="carrito" class="info-card carrito-card">
         <h2><i class="fas fa-shopping-cart"></i> Tu Carrito</h2>
-        <p>(Carrito vacío por ahora)</p>
-        <a href="carrito.html" class="btn-hero small">Ver productos</a>
+        <div id="cart-container">
+          <p>(Carrito vacío por ahora)</p>
+        </div>
+        <button id="finalizarCompra" class="btn-hero small">Finalizar compra</button>
       </section>
+      
     </div>
   </main>
 
@@ -188,10 +197,11 @@
   </a>
 
   <script src="js/products.js"></script>
-  <script src="js/carts.js"></script>
-  <script src="js/main.js"></script> <!-- Este sí o sí ANTES del slider -->
+  <script src="js/cart.js"></script> <!-- corregido: era carts.js -->
+  <script src="js/renderProducts.js"></script> <!-- este antes si va a mostrar productos -->
+  <script src="js/main.js"></script> <!-- después de render -->
   <script src="js/slider.js"></script>
-  <script src="js/renderProducts.js"></script>
+  
 
 </body>
 

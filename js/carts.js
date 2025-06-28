@@ -7,7 +7,6 @@
 // ——————————————————————————————
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-
 // ——————————————————————————————
 // 2. Guardar y actualizar contador
 // ——————————————————————————————
@@ -17,13 +16,12 @@ function guardarCarrito() {
 
 function updateCartCount() {
     const spanCount = document.getElementById('cart-count');
-    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+    const totalItems = carrito.reduce((sum, item) => sum + (item.cantidad || 0), 0);
     if (spanCount) spanCount.textContent = totalItems;
 }
 
-
 // ——————————————————————————————
-// 3. Función para agregar producto
+// 3. Agregar producto al carrito
 // ——————————————————————————————
 function agregarAlCarrito(nombre, precio, imagen = 'img/productos/placeholder.jpg') {
     const existente = carrito.find(item => item.nombre === nombre);
@@ -33,7 +31,7 @@ function agregarAlCarrito(nombre, precio, imagen = 'img/productos/placeholder.jp
     } else {
         carrito.push({
             nombre,
-            precio,
+            precio: Number(precio),
             cantidad: 1,
             imagen
         });
@@ -42,7 +40,6 @@ function agregarAlCarrito(nombre, precio, imagen = 'img/productos/placeholder.jp
     guardarCarrito();
     updateCartCount();
 }
-
 
 // ——————————————————————————————
 // 4. Mostrar contenido del carrito
@@ -64,7 +61,8 @@ function mostrarCarrito() {
     let total = 0;
 
     carrito.forEach((item, index) => {
-        total += item.precio * item.cantidad;
+        const subtotal = (item.precio || 0) * (item.cantidad || 0);
+        total += subtotal;
 
         const card = document.createElement('div');
         card.className = 'tarjeta-producto';
@@ -85,7 +83,6 @@ function mostrarCarrito() {
     totalDiv.innerHTML = `<h3>Total: $${total}</h3>`;
 }
 
-
 // ——————————————————————————————
 // 5. Eliminar producto por índice
 // ——————————————————————————————
@@ -96,7 +93,6 @@ function eliminarDelCarrito(indice) {
     updateCartCount();
 }
 
-
 // ——————————————————————————————
 // 6. Vaciar todo el carrito
 // ——————————————————————————————
@@ -106,7 +102,6 @@ function vaciarCarrito() {
     mostrarCarrito();
     updateCartCount();
 }
-
 
 // ——————————————————————————————
 // 7. Finalizar compra (simulado)
@@ -119,11 +114,13 @@ function finalizarCompra() {
 
     alert('✅ ¡Gracias por tu compra! Serás redirigido al pago.');
     vaciarCarrito();
+
+    // A futuro podrías redirigir:
+    // window.location.href = "pago.html";
 }
 
-
 // ——————————————————————————————
-// 8. Auto-ejecución al cargar la página
+// 8. Ejecutar al cargar la página
 // ——————————————————————————————
 document.addEventListener('DOMContentLoaded', () => {
     mostrarCarrito();
