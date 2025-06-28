@@ -1,0 +1,69 @@
+/* ============================
+   BENEFICIOS / INFO VISUAL
+   ============================ */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 3rem 1rem;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.beneficio {
+    background-color: #fdfdfd;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.beneficio img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.beneficio h3 {
+    font-size: 1.2rem;
+    color: #0D4B4C;
+    margin-bottom: 0.5rem;
+}
+
+.beneficio p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Animación suave de entrada */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade {
+    animation: fadeUp 0.6s ease both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .beneficios {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,17 @@
+.separador-avanti {
+    background-color: #f3fdfc;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0D4B4C;
+    margin: 2rem 0;
+    border-top: 2px solid #cce5e3;
+    border-bottom: 2px solid #cce5e3;
+    font-family: 'Poppins', sans-serif;
+}
+
+.separador-avanti i {
+    margin-right: 0.5rem;
+    color: #EA4B06;
+}

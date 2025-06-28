@@ -1,0 +1,150 @@
+/* ============================
+   UTILIDADES GENERALES
+   ============================ */
+
+/* Margen y padding */
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 2rem;
+}
+
+.pt-1 {
+    padding-top: 0.5rem;
+}
+
+.pt-2 {
+    padding-top: 1rem;
+}
+
+.pb-1 {
+    padding-bottom: 0.5rem;
+}
+
+.pb-2 {
+    padding-bottom: 1rem;
+}
+
+/* Centrado */
+.text-center {
+    text-align: center;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Colores */
+.bg-light {
+    background-color: #f8f8f8;
+}
+
+.bg-dark {
+    background-color: #0D4B4C;
+    color: #fff;
+}
+
+.bg-accent {
+    background-color: #EA4B06;
+    color: white;
+}
+
+.text-accent {
+    color: #EA4B06;
+}
+
+.text-dark {
+    color: #0D4B4C;
+}
+
+/* Botones secundarios */
+.btn-secondary {
+    background-color: #C89F65;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #a17b4a;
+}
+
+/* Ocultar en desktop */
+@media (min-width: 992px) {
+    .hide-desktop {
+        display: none;
+    }
+}
+
+/* Ocultar en móvil */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+/* === TÍTULOS DE SECCIÓN === */
+.section-title {
+    font-size: 1.6rem;
+    color: #0D4B4C;
+    /* verde institucional */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #EA4B06;
+    /* naranja acento */
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    color: #0D4B4C;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+#categorias {
+    padding-top: 3rem;
+    /* separa del contenido anterior */
+}
+
+.separador-estilo {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #0D4B4C 10%, #C89F65 50%, #0D4B4C 90%);
+    opacity: 0.1;
+    margin: 3rem auto;
+    border-radius: 30px;
+}

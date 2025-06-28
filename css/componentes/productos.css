@@ -1,0 +1,295 @@
+/* ============================
+   PRODUCTOS DE MARCA (catálogo)
+   ============================ */
+
+.marca-banner {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid var(--gris-borde);
+}
+
+.marca-banner .logo-marca {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0.75rem;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+}
+
+.marca-banner .logo-marca:hover {
+    transform: scale(1.05);
+}
+
+.marca-banner h2 {
+    font-size: 1.4rem;
+    color: var(--verde-avanti);
+    font-weight: 600;
+}
+
+/* Ajustes responsive */
+@media (max-width: 600px) {
+    .marca-banner .logo-marca {
+        width: 90px;
+    }
+
+    .marca-banner h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ============================
+   TARJETAS DE PRODUCTOS
+   ============================ */
+
+.grid-categorias {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 576px) {
+    .grid-categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-categorias {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid-categorias {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.categoria-card {
+    background-color: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 180px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeScaleIn 0.6s forwards;
+}
+
+.categoria-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.categoria-card img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.categoria-card p:first-of-type {
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+    min-height: 40px;
+    line-height: 1.2;
+}
+
+.categoria-card p:nth-of-type(2) {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Botón comprar */
+.categoria-card .btn-hero.small {
+    margin-top: auto;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    background-color: var(--naranja-avanti);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categoria-card .btn-hero.small:hover {
+    background-color: var(--dorado-hover);
+}
+
+/* Animación fade-in escalonada */
+@keyframes fadeScaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.categoria-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.categoria-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.categoria-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.categoria-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.marca-banner {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-marca {
+    display: block;
+    margin: 0 auto 1rem auto;
+    /* 👈 CENTRA la imagen y da espacio inferior */
+    width: 120px;
+    height: auto;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+}
+
+.logo-marca:hover {
+    transform: scale(1.05);
+}
+
+.icono {
+    background-color: #fff;
+    border: 2px solid #98bfbf;
+    border-radius: 1rem;
+    padding: 0.75rem;
+    text-align: center;
+    width: 100px;
+    /* antes 120px o más */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icono img {
+    width: 40px;
+    /* achicado para acompañar el tamaño general */
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 0.3rem;
+}
+
+.icono p {
+    font-size: 0.75rem;
+    /* más chico para que no se salga */
+    font-weight: 500;
+    color: #0D4B4C;
+    line-height: 1.1;
+    margin: 0;
+    word-wrap: break-word;
+    /* por si alguna palabra larga iguala el ancho */
+}
+
+.banner-categoria {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.banner-categoria img {
+    max-width: 120px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-categoria h2 {
+    color: #0D4B4C;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+/* ============================
+   TARJETAS DE PRODUCTOS INDIVIDUALES
+   ============================ */
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    justify-items: center;
+}
+
+.tarjeta-producto {
+    background-color: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeScaleIn 0.6s forwards;
+}
+
+.tarjeta-producto:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+}
+
+.tarjeta-producto h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0D4B4C;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-producto p {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    color: #333;
+}
+
+.tarjeta-producto .btn-hero.small {
+    margin-top: auto;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    background-color: var(--naranja-avanti);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tarjeta-producto .btn-hero.small:hover {
+    background-color: var(--dorado-hover);
+}

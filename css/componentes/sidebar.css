@@ -1,0 +1,92 @@
+/* ========================
+   MENÚ HAMBURGUESA FIJO
+   ======================== */
+.hamburger-fixed {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    font-weight: bold;
+    color: #0D4B4C;
+    background-color: #fff;
+    border: 2px solid #0D4B4C;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.hamburger-fixed:hover {
+    background-color: rgba(13, 75, 76, 0.05);
+    transform: scale(1.03);
+}
+
+.menu-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #0D4B4C;
+}
+
+
+/* ========================
+     BARRA LATERAL (SIDEBAR)
+     ======================== */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: -250px;
+    width: 220px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar ul li a {
+    color: #0D4B4C;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s, padding 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #EA4B06;
+    color: white;
+    padding-left: 1.2rem;
+}
+
+
+/* ========================
+     RESPONSIVE
+     ======================== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100vw;
+    }
+}

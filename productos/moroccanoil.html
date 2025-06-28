@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moroccanoil | Avanti</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-left">
+                <a href="../index.html">
+                    <img src="../img/logos/avanti.png" alt="Avanti" class="logo-img" />
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?" />
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-actions">
+                <a href="#">Ingresá / Registrate</a>
+                <a href="../carrito.html">
+                    <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    
+        <!-- Sidebar de navegación -->
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="../index.html#categorias">🗂 Catálogos</a></li>
+                <li><a href="../index.html#productos">🛍 Productos</a></li>
+                <li><a href="../index.html#como-comprar">💳 Cómo Comprar</a></li>
+                <li><a href="../index.html#nosotras">👩‍🦱 Nosotras</a></li>
+                <li><a href="../index.html#contacto">📞 Contacto</a></li>
+            </ul>
+        </nav>
+    
+        <!-- Botón hamburguesa -->
+        <button class="hamburger-fixed" id="hamburger">
+            <i class="fas fa-bars"></i> <span class="menu-label">Menú</span>
+        </button>
+    </header>
+    
+    <main>
+        <section class="productos-lista">
+            <h2 id="titulo-productos">Moroccanoil</h2>
+            <div id="contenedor-productos" class="grid-productos"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column about">
+                <h3>Avanti Hair Salon</h3>
+                <p>La Plata • Productos y asesoramiento de calidad</p>
+            </div>
+            <div class="footer-column links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                    <li><a href="../index.html#categorias">Catálogos</a></li>
+                    <li><a href="../index.html#como-comprar">Cómo Comprar</a></li>
+                    <li><a href="../index.html#nosotras">Nosotras</a></li>
+                </ul>
+            </div>
+            <div class="footer-column legal">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="../terminos.html">Términos</a></li>
+                    <li><a href="../privacidad.html">Privacidad</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://instagram.com/avanti.hairsalon" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5492216908851" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2025 Avanti Hair Salon – La Plata</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5492216908851" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../js/products.js"></script>
+    <script src="../js/renderProducts.js"></script>
+    <script src="../js/carts.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // CAMBIÁ ESTO SEGÚN EL HTML: 
+        // renderizarProductosPor('categoria', 'shampoos') o ('marca', 'moroccanoil')
+            document.addEventListener("DOMContentLoaded", () => {
+        renderizarProductosPor('marca', 'moroccanoil'); // ejemplo
+    });
+    </script>
+</body>
+
+</html>

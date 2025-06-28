@@ -1,0 +1,198 @@
+<!-- Página principal Avanti -->
+ <!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avanti✨Tienda Online</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- ==== TOP BAR ==== -->
+  <div class="top-bar">
+    <p>🛍️ Avanti Tienda Online | ✨ Productos Profesionales</p>
+  </div>
+
+  <!-- ==== HEADER ==== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-left">
+        <a href="index.html">
+          <img src="img/logos/avanti.png" alt="Avanti Hair Salon" class="logo-img" />
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="¿Qué estás buscando?" />
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="user-actions">
+        <a href="carrito.html" class="carrito-link">
+          <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+        </a>
+      </div>
+    </div>
+    <button class="hamburger-fixed" id="hamburger" aria-label="Menú">
+      <i class="fas fa-bars"></i>
+      <span class="menu-label">Menú</span>
+    </button>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#categorias">📂 Catálogos</a></li>
+      <li><a href="#productos">🛍 Productos</a></li>
+      <li><a href="#como-comprar">💳 Cómo Comprar</a></li>
+      <li><a href="#nosotras">👩‍🦱 Nosotras</a></li>
+      <li><a href="#contacto">📞 Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- CARRUSEL -->
+  <section class="hero-slider">
+    <div class="slider-track" id="slider-track">
+      <img src="img/salon/salon_corte.jpeg" alt="Salon corte">
+      <img src="img/salon/peinado.jpg" alt="Salon peinado">
+      <img src="img/salon/salon_lavado.jpeg" alt="Salon Lavado">
+    </div>
+    <div class="slider-dots" id="slider-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </section>
+
+  <main>
+    <section id="categorias" class="fade-in">
+      <h2 class="section-title">Catálogos por Marca</h2>
+      <div class="grid-marcas">
+        <a class="marca-link" href="productos/moroccanoil.html"><img src="img/logos/moroccanoil.png" alt="Moroccanoil" /></a>
+        <a class="marca-link" href="productos/tigi.html"><img src="img/logos/tigi.png" alt="Tigi" /></a>
+        <a class="marca-link" href="productos/revlon.html"><img src="img/logos/revlon.png" alt="Revlon" /></a>
+        <a class="marca-link" href="productos/olaplex.html"><img src="img/logos/olaplex.png" alt="Olaplex" /></a>
+        <a class="marca-link" href="productos/hairssime.html"><img src="img/logos/hairssime_A.png" alt="Hairssime" /></a>
+        <a class="marca-link" href="productos/avantibox.html"><img src="img/logos/avanti_box.png" alt="Avanti Box" /></a>
+        <a class="marca-link" href="productos/karseell.html"><img src="img/logos/karseell.png" alt="Karseell" /></a>
+        <a class="marca-link" href="productos/cepillos.html"><img src="img/logos/cepillo_A.png" alt="Cepillos" /></a>
+      </div>
+    </section>
+
+    <section class="separador-avanti fade-in">
+      <p><i class="fas fa-leaf"></i> Elegí calidad, elegí Avanti</p>
+    </section>
+
+    <section class="iconos-productos fade-in" id="productos">
+      <div class="grid-iconos">
+        <a href="productos/shampoos.html" class="icono"><img src="img/categorias/champu.png" alt="Shampoos" /><p>Shampoos</p></a>
+        <a href="productos/acondicionadores.html" class="icono" style="transform: scale(0.9);">
+          <img src="img/categorias/acondicionador.png" alt="Acondicionadores" />
+          <p style="font-size: 0.7rem;">Acondicionadores</p>
+        </a>
+        <a href="productos/mascaras.html" class="icono"><img src="img/categorias/mascara.png" alt="Mascarás" /><p>Mascaras</p></a>
+        <a href="productos/serums.html" class="icono"><img src="img/categorias/serum.png" alt="Serums" /><p>Serums</p></a>
+      </div>
+    </section>
+
+    <div class="separador-estilo"></div>
+
+    <section class="beneficios fade-in" id="como-comprar">
+      <div class="beneficio animate-fade">
+        <img src="img/icons/repartidor.png" alt="Envíos a todo el país" />
+        <h3>Enviamos tu compra</h3>
+        <p>Entregas a todo el país</p>
+      </div>
+      <div class="beneficio animate-fade">
+        <img src="img/icons/billetera.png" alt="Pagá como quieras" />
+        <h3>Pagá como quieras</h3>
+        <p>Tarjetas de crédito o efectivo</p>
+      </div>
+      <div class="beneficio animate-fade">
+        <img src="img/icons/escudo.png" alt="Comprá con seguridad" />
+        <h3>Comprá con seguridad</h3>
+        <p>Todos tus datos están protegidos</p>
+      </div>
+      <p class="explicacion-compra">Elegí tus productos, agregalos al carrito y coordiná tu compra por WhatsApp.</p>
+    </section>
+
+    <div class="separador-estilo"></div>
+
+    <section class="hero-info fade-in" id="nosotras">
+      <div class="hero-info-content">
+        <div class="hero-info-texto">
+          <h2>Nosotras</h2>
+          <p>En Avanti cuidamos cada detalle para brindarte una experiencia cálida y personalizada.</p>
+          <a href="#contacto" class="btn-hero">Contáctanos</a>
+        </div>
+        <div class="hero-info-imagen">
+          <img src="img/salon/nosotras.jpeg" alt="Empresarias">
+        </div>
+      </div>
+    </section>
+
+    <div class="info-sections fade-in">
+      <section id="contacto" class="info-card contacto-card">
+        <h2><i class="fas fa-envelope-open-text"></i> Contacto</h2>
+        <div class="contacto-links">
+          <a href="https://wa.me/5492216908851" target="_blank" class="contact-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://instagram.com/avanti.hairsalon" target="_blank" class="contact-icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.google.com/maps?q=Avanti+Hair+Salon+La+Plata" target="_blank" class="contact-icon mapa"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+      </section>
+      <section id="carrito" class="info-card carrito-card">
+        <h2><i class="fas fa-shopping-cart"></i> Tu Carrito</h2>
+        <p>(Carrito vacío por ahora)</p>
+        <a href="carrito.html" class="btn-hero small">Ver productos</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column about">
+        <h3>Avanti Hair Salon</h3>
+        <p>La Plata • Productos y asesoramiento de calidad</p>
+      </div>
+      <div class="footer-column links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#categorias">Catálogos</a></li>
+          <li><a href="#como-comprar">Cómo Comprar</a></li>
+          <li><a href="#nosotras">Nosotras</a></li>
+        </ul>
+      </div>
+      <div class="footer-column legal">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terminos.html">Términos</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://instagram.com/avanti.hairsalon" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5492216908851" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 Avanti Hair Salon – La Plata</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5492216908851" class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/carts.js"></script>
+  <script src="js/main.js"></script> <!-- Este sí o sí ANTES del slider -->
+  <script src="js/slider.js"></script>
+  <script src="js/renderProducts.js"></script>
+
+</body>
+
+</html>

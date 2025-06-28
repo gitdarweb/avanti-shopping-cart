@@ -1,0 +1,126 @@
+/* ============================
+   CATÁLOGOS POR MARCA (index)
+   ============================ */
+
+.grid-marcas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.marca-link {
+    background-color: #fff;
+    border: 2px solid var(--verde-suave);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.marca-link:hover {
+    border-color: var(--naranja-avanti);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.marca-link img {
+    max-height: 60px;
+    max-width: 80px;
+    object-fit: contain;
+    filter: grayscale(10%) contrast(110%);
+    transition: filter 0.3s;
+}
+
+.marca-link:hover img {
+    filter: none;
+}
+
+@media (max-width: 600px) {
+    .grid-marcas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .marca-link {
+        height: 80px;
+        width: 80px;
+        padding: 0.5rem;
+    }
+
+    .marca-link img {
+        max-height: 40px;
+    }
+}
+
+
+/* ============================
+   ICONOS DE CATEGORÍAS
+   ============================ */
+
+.iconos-productos {
+    padding: 2rem 1rem;
+    background-color: #fff;
+    margin-top: 2rem;
+}
+
+.grid-iconos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.icono {
+    background-color: #fff;
+    border: 2px solid var(--verde-suave);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 120px;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icono:hover {
+    border-color: var(--naranja-avanti);
+    box-shadow: 0 0 12px rgba(234, 75, 6, 0.3);
+}
+
+.icono img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.icono p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--verde-avanti);
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .icono {
+        width: 100px;
+        padding: 0.75rem;
+    }
+
+    .icono img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icono p {
+        font-size: 0.8rem;
+    }
+}

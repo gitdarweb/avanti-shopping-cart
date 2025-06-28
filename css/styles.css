@@ -1,0 +1,24 @@
+/* Estilos Avanti */
+/* styles.css */
+/* styles.css - Archivo principal que importa todos los módulos de estilos */
+
+@import url('./componentes/reset.css');
+@import url('./componentes/variables.css');
+
+@import url('./componentes/header.css');
+@import url('./componentes/footer.css');
+@import url('./componentes/hero-info.css');
+@import url('./componentes/productos.css');
+@import url('./componentes/marcas-categorias.css');
+@import url('./componentes/beneficios.css');
+@import url('./componentes/slider.css');
+@import url('./componentes/contacto.css');
+
+@import url('./componentes/utilities.css');
+@import url('./componentes/carrito.css');
+@import url('./componentes/animations.css');
+@import url('./componentes/info.css');
+@import url('./componentes/whatsapp.css');
+@import url('./componentes/sidebar.css');
+@import url('./componentes/separadores.css');
+@import url('./componentes/iconos-productos.css');

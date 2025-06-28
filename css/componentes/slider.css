@@ -1,0 +1,116 @@
+/* ============================
+   SLIDER PRINCIPAL (Hero)
+   ============================ */
+
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.slider-track img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Texto sobre el slider */
+.slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    z-index: 1;
+    animation: fadeSlideUp 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+.slider-text h2 {
+    font-size: 2rem;
+    color: #0D4B4C;
+    margin-bottom: 0.5rem;
+}
+
+.slider-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-hero {
+    background-color: #EA4B06;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: #C89F65;
+}
+
+/* Dots del slider */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #EA4B06;
+}
+
+/* Animación fade-up */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slider-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .slider-text p {
+        font-size: 0.9rem;
+    }
+
+    .btn-hero {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
