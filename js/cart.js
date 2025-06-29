@@ -39,10 +39,11 @@ function agregarAlCarrito(nombre, precio, imagen = 'img/productos/placeholder.jp
 
     guardarCarrito();
     updateCartCount();
+    mostrarPreviewCarrito(); // Opcional: se actualiza en index.html si aplica
 }
 
 // ——————————————————————————————
-// 4. Mostrar contenido del carrito
+// 4. Mostrar contenido del carrito (carrito.html)
 // ——————————————————————————————
 function mostrarCarrito() {
     const contenedor = document.getElementById('carrito-contenedor');
@@ -61,7 +62,7 @@ function mostrarCarrito() {
     let total = 0;
 
     carrito.forEach((item, index) => {
-        const subtotal = (item.precio || 0) * (item.cantidad || 0);
+        const subtotal = item.precio * item.cantidad;
         total += subtotal;
 
         const card = document.createElement('div');
@@ -80,7 +81,29 @@ function mostrarCarrito() {
         contenedor.appendChild(card);
     });
 
-    totalDiv.innerHTML = `<h3>Total: $${total}</h3>`;
+    totalDiv.innerHTML = `<h3>Total: $${total.toLocaleString("es-AR")}</h3>`;
+}
+
+// ——————————————————————————————
+// 4b. Mostrar preview simple del carrito (index.html)
+// ——————————————————————————————
+function mostrarPreviewCarrito() {
+    const contenedor = document.getElementById('cart-container');
+    if (!contenedor) return;
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = '<p>(Carrito vacío por ahora)</p>';
+        return;
+    }
+
+    let html = '<ul class="preview-list">';
+    carrito.forEach(item => {
+        const subtotal = item.precio * item.cantidad;
+        html += `<li>${item.nombre} x${item.cantidad} = $${subtotal.toLocaleString("es-AR")}</li>`;
+    });
+    html += '</ul>';
+
+    contenedor.innerHTML = html;
 }
 
 // ——————————————————————————————
@@ -90,6 +113,7 @@ function eliminarDelCarrito(indice) {
     carrito.splice(indice, 1);
     guardarCarrito();
     mostrarCarrito();
+    mostrarPreviewCarrito();
     updateCartCount();
 }
 
@@ -100,11 +124,12 @@ function vaciarCarrito() {
     carrito = [];
     guardarCarrito();
     mostrarCarrito();
+    mostrarPreviewCarrito();
     updateCartCount();
 }
 
 // ——————————————————————————————
-// 7. Finalizar compra (simulado)
+// 7. Finalizar compra → Redirige a pago.html
 // ——————————————————————————————
 function finalizarCompra() {
     if (carrito.length === 0) {
@@ -112,17 +137,35 @@ function finalizarCompra() {
         return;
     }
 
-    alert('✅ ¡Gracias por tu compra! Serás redirigido al pago.');
-    vaciarCarrito();
+    // ✅ Guardamos el carrito antes de redirigir (por las dudas)
+    guardarCarrito();
 
-    // A futuro podrías redirigir:
-    // window.location.href = "pago.html";
+    // ✅ Redirigimos a pago.html (donde se mostrará el resumen y botón de pago)
+    window.location.href = "pago.html";
 }
+
 
 // ——————————————————————————————
 // 8. Ejecutar al cargar la página
 // ——————————————————————————————
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarCarrito();
+    mostrarCarrito();           // carrito.html
+    mostrarPreviewCarrito();    // index.html
     updateCartCount();
+
+    // Eventos de botones (si existen en la página actual)
+    const btnVaciar = document.getElementById('btn-vaciar');
+    const btnFinalizar = document.getElementById('btn-finalizar') || document.getElementById('finalizarCompra');
+
+    if (btnVaciar) {
+        btnVaciar.addEventListener('click', () => {
+            if (confirm('¿Seguro que querés vaciar el carrito?')) {
+                vaciarCarrito();
+            }
+        });
+    }
+
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener('click', finalizarCompra);
+    }
 });

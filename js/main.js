@@ -120,19 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const finalizarBtn = document.getElementById("finalizarCompra");
     if (finalizarBtn) {
         finalizarBtn.addEventListener("click", () => {
-            const cart = getCart();
-            if (!cart.length) {
+            if (!carrito.length) {
                 alert("Tu carrito está vacío.");
                 return;
             }
-
-            const resumen = cart.map(item =>
-                `• ${item.nombre} x${item.cantidad} = $${(item.precio * item.cantidad).toLocaleString("es-AR")}`
-            ).join("\n");
-
-            const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
-
-            alert(`Resumen de tu compra:\n\n${resumen}\n\nTotal: $${total.toLocaleString("es-AR")}`);
+            // Redirigir a carrito.html para finalizar compra
+            window.location.href = "carrito.html";
         });
     }
 
