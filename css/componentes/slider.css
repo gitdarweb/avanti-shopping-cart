@@ -1,144 +1,104 @@
-/* ============================
-   SLIDER PRINCIPAL (Hero)
-   ============================ */
+/* ==================================================
+   SLIDER PRINCIPAL  – Hero  (sin flechas laterales)
+================================================== */
 
+/* 1) Contenedor general */
 .hero-slider {
     position: relative;
     overflow: hidden;
-    background-color: #f8f8f8;
     width: 100%;
+    background-color: #0a3a41;
+    /* tono oscuro de la paleta */
 }
 
+/* 2) Pista que se desplaza */
 .slider-track {
     display: flex;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
+    /* animación suave */
 }
 
+/* 3) Imágenes dentro del track */
 .slider-track img {
     width: 100%;
     aspect-ratio: 16 / 9;
+    /* mantiene proporción */
     object-fit: cover;
     flex-shrink: 0;
 }
 
-/* Texto sobre el slider */
+/* 4) Texto centrado encima (opcional) */
 .slider-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 0.5rem;
+    inset: 0;
+    /* ocupa todo para centrar fácil */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .4);
     animation: fadeSlideUp 1.2s ease-out forwards;
     opacity: 0;
+    /* se revela con la anim */
 }
 
-.slider-text h2 {
-    font-size: 2rem;
-    color: #0D4B4C;
-    margin-bottom: 0.5rem;
-}
-
-.slider-text p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.btn-hero {
-    background-color: #EA4B06;
-    color: white;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-hero:hover {
-    background-color: #C89F65;
-}
-
-/* Dots del slider */
+/* 5) Dots indicadores */
 .slider-dots {
     position: absolute;
-    bottom: 15px;
+    bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-    z-index: 2;
+    gap: 12px;
+    z-index: 3;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color: #ccc;
+    background: #c8c8c8;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background .3s;
 }
 
 .dot.active {
-    background-color: #EA4B06;
+    background: #ea4b06;
 }
 
-/* Animación fade-up */
+/* 6) Animación texto */
 @keyframes fadeSlideUp {
     0% {
         opacity: 0;
-        transform: translate(-50%, -40%);
+        transform: translateY(15px);
     }
 
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%);
+        transform: translateY(0);
     }
 }
 
-/* Responsive */
+/* 7) Responsive menores a 768 px */
 @media (max-width: 768px) {
+    .slider-track img {
+        aspect-ratio: 4/3;
+    }
+
     .slider-text h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .slider-text p {
-        font-size: 0.9rem;
-    }
-
-    .btn-hero {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 }
-/* ==== Botones de navegación izquierda/derecha ==== */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 3;
-    transition: background-color 0.3s ease;
-}
 
-.slider-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.slider-btn.prev {
-    left: 10px;
-}
-
-.slider-btn.next {
-    right: 10px;
-}
+/* ---------------------------------------------
+     ⚠️ Se eliminó todo lo referente a .slider-btn
+     (prev / next) porque ya no se usan.
+  --------------------------------------------- */

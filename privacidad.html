@@ -14,43 +14,44 @@
 </head>
 
 <body>
-    <!-- 🔝 Línea superior promocional -->
+    <!-- ==== TOP BAR ==== -->
     <div class="top-bar">
-        <p>🛍️ Avanti Tienda Online ✨ Política de Privacidad</p>
+        <p>Avanti Tienda Online | Productos Profesionales</p>
     </div>
-
-    <!-- Header completo -->
+    <!-- ==== HEADER NUEVO ==== -->
     <header class="site-header">
-        <div class="header-inner">
-            <div class="logo-left">
-                <a href="index.html">
-                    <img src="img/logos/avanti.png" alt="Avanti Hair Salon" class="logo-img" />
-                </a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="¿Qué estás buscando?" />
-                <button class="btn-search"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="user-actions">
-                <a href="#">Ingresá / Registrate</a>
-                <a href="carrito.html"><i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)</a>
-            </div>
-        </div>
-        <nav class="sidebar" id="sidebar">
+        <!-- Logo a la izquierda -->
+        <a href="index.html" class="logo">
+            <img src="img/branding/Logo-dorado.png" alt="Avanti Hair Salon">
+        </a>
+        <!-- Botón solo visible en mobile -->
+        <button class="burger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    
+        <!-- Menú horizontal -->
+        <nav class="main-nav">
             <ul>
-                <li><a href="index.html#categorias">🗂 Catálogos</a></li>
-                <li><a href="index.html#productos">🛍 Productos</a></li>
-                <li><a href="index.html#como-comprar">💳 Cómo Comprar</a></li>
-                <li><a href="index.html#nosotras">👩‍🦱 Nosotras</a></li>
-                <li><a href="index.html#contacto">📞 Contacto</a></li>
+                <li><a href="#categorias">Catálogos</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#como-comprar">Cómo Comprar</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
-        <!-- ✅ Fondo oscuro al abrir menú lateral -->
-        <div class="sidebar-overlay" id="sidebar-overlay"></div>
-        <button class="hamburger-fixed" id="hamburger">
-            <i class="fas fa-bars"></i> <span class="menu-label">Menú</span>
-        </button>
+    
+        <!-- Carrito / login (derecha) -->
+        <div class="user-zone">
+    
+    
+            <a href="#">Ingresá | Registrate</a>
+            <a href="carrito.html" class="carrito-link">
+                🛒 <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
+    
+    <!-- ✅ Fondo oscuro al abrir menú lateral -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <main style="padding: 2rem;">
         <h2>Política de Privacidad</h2>

@@ -1,12 +1,11 @@
 /* Variables personalizadas de color */
 :root {
-    --verde-avanti: #0D4B4C;
-    --verde-suave: #98bfbf;
-    --naranja-avanti: #EA4B06;
-    --dorado-hover: #C89F65;
-    --gris-fondo: #f7f7f7;
-    --gris-borde: #eee;
-    --blanco: #fff;
-    --color-primario: #0D4B4C;
-        --color-acento: #EA4B06;
+    --av-bg-color: #0a3a41;
+    /* fondo verde claro */
+    --av-header-color: #0b292b;
+    /* encabezado verde oscuro */
+    --av-accent: #ea4b06;
+    /* color secundario (branding.pdf) */
+    --text-color: #ffffff;
+    --font-main: 'Montserrat', sans-serif;
 }
