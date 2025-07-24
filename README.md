@@ -133,3 +133,9 @@ Contacto: [WhatsApp Avanti](https://wa.me/5492216908851)
 
 ¡Gracias por confiar en Avanti Hair Salon! 💖
 
+futuro color para la tipógrafia que es muy amarilla : #C89F65;
+ajustar las variables.
+ /* ACTUALIZAR ESTA 👇 */
+    --av-gold: #C89F65;
+IMPORTANTE PARA CONTINUAR PAGO.HTML, MAS ADELANTE.
+

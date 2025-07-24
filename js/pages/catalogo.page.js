@@ -1,26 +1,33 @@
-// js/pages/catalogo.page.js
+/* -------------------------------------------------
+   js/pages/catalogo.page.js
+   Encargado de catálogo por marca o categoría
+-------------------------------------------------- */
+
 import { renderizarProductosPor } from '../core/renderProducts.js';
 import { updateCartCount } from '../cart/ui.js';
+import { initBurger } from '../core/burger.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('📦 catalogo.page.js cargado');
+
+    // 1️⃣ Menú hamburguesa
+    initBurger();
+
+    // 2️⃣ Actualiza contador del carrito
     updateCartCount();
 
+    // 3️⃣ Detectar si es marca o categoría según URL
     const path = window.location.pathname;
     const isCategoria = path.includes('/categorias/');
     const isMarca = path.includes('/marcas/');
     const nombre = path.split('/').pop().replace('.html', '');
 
+    // 4️⃣ Renderiza los productos según el tipo
     if (isCategoria) {
         renderizarProductosPor('categoria', nombre);
     } else if (isMarca) {
         renderizarProductosPor('marca', nombre);
     } else {
-        console.warn('No se pudo detectar la categoría o marca desde la URL.');
+        console.warn('❗ No se pudo detectar categoría o marca desde la URL.');
     }
 });
-// Nota: Este código asume que las funciones y módulos necesarios están correctamente implementados y disponibles.
-// Asegúrate de que `renderizarProductosPor` maneje correctamente los casos de categorías y marcas, y que el HTML tenga los elementos necesarios para mostrar los productos.
-// También se asume que `updateCartCount` actualiza el contador del carrito en la página actual. Si no es así, deberías ajustar el código según tus necesidades específicas.
-// Este código se ejecutará cuando el DOM esté completamente cargado, asegurando que los elementos necesarios estén disponibles para manipularse. Si necesitas realizar más acciones específicas al cargar la página, puedes agregarlas dentro del mismo bloque `DOMContentLoaded`.
-// Asegúrate de que el archivo `catalogo.page.js` esté correctamente vinculado en tu HTML para que este script se ejecute al cargar la página de catálogo. Por ejemplo, deberías tener algo como esto en tu HTML:
-// ```html

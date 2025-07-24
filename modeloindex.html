@@ -1,0 +1,77 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ✅ Codificación y responsive -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ Título SEO + Branding -->
+    <title>Avanti✨Tienda Online | Productos Profesionales para el Cabello</title>
+    <meta name="description"
+        content="Tienda online con productos profesionales de peluquería. Moroccanoil, Revlon, Tigi, Olaplex y más. Envíos a todo el país. Calidad y asesoramiento personalizado." />
+    <meta name="author" content="Avanti Hair Salon" />
+
+    <!-- ✅ Meta redes sociales (Open Graph para compartir) -->
+    <meta property="og:title" content="Avanti✨Tienda Online" />
+    <meta property="og:description"
+        content="Elegí calidad, elegí Avanti. Productos de peluquería profesional al alcance de todos." />
+    <meta property="og:image" content="https://gitdarweb.github.io/avanti-shopping-cart/img/branding/Logo-dorado.png" />
+    <meta property="og:url" content="https://gitdarweb.github.io/avanti-shopping-cart/" />
+    <meta property="og:type" content="website" />
+
+    <!-- ✅ Ícono para pestaña del navegador -->
+    <link rel="icon" href="img/branding/favicon.ico" type="image/x-icon" />
+
+    <!-- ✅ Estilo principal del sitio -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ✅ Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+    <!-- ✅ FontAwesome: íconos sociales / carrito / menú -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <!-- TOP BAR (siempre visible, arriba del header) -->
+    <div class="top-bar">
+        <p>Avanti Tienda Online | Productos Profesionales</p>
+    </div>
+
+    <!-- HEADER con fondo verde‑trama -->
+    <header class="site-header">
+        <!-- 1 · Logo -->
+        <a href="index.html" class="logo">
+            <img src="img/branding/Logo-dorado.png" alt="Avanti Hair Salon" />
+        </a>
+
+        <!-- 2 · Botón burger (solo se ve < 768 px) -->
+        <button class="burger" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- 3 · Menú horizontal -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#categorias">Catálogos</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#como-comprar">Cómo Comprar</a></li>
+                <li><a href="#nosotras">Nosotras</a></li> <!-- ✅ nuevo -->
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- 4 · Zona de usuario / carrito -->
+        <div class="user-zone">
+            <a href="#">Ingresá | Registrate</a>
+            <a href="carrito.html" class="carrito-link">
+                🛒 <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- …el resto de tu página… -->

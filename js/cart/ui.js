@@ -1,10 +1,3 @@
-/* -------------------------------------------------
-   js/cart/ui.js  –  Presentación del carrito
-   -------------------------------------------------
-   · NO guarda nada – sólo lee el estado del core
-   · Dibuja: contador 🛒, preview (index) y lista (carrito.html)
--------------------------------------------------- */
-
 import {
     getCart,
     getTotalQty,
@@ -12,7 +5,7 @@ import {
     addItem,
     removeIndex,
     clearCart,
-} from './cart.js';
+} from './carrito.js';
 
 /* ============ 1. Contador global 🛒 ============ */
 export function updateCartCount() {
@@ -23,7 +16,7 @@ export function updateCartCount() {
 /* ============ 2. Preview rápido (index.html) ============ */
 export function renderPreview() {
     const container = document.getElementById('cart-container');
-    if (!container) return;                       // solo existe en index
+    if (!container) return;
 
     const cart = getCart();
     if (cart.length === 0) {
@@ -48,7 +41,7 @@ export function renderPreview() {
 export function renderFull() {
     const cont = document.getElementById('carrito-contenedor');
     const totalDiv = document.getElementById('carrito-total');
-    if (!cont || !totalDiv) return;               // sólo en carrito.html
+    if (!cont || !totalDiv) return;
 
     const cart = getCart();
     cont.innerHTML = '';
@@ -79,12 +72,12 @@ export function renderFull() {
 
     totalDiv.textContent = `Total: $${getTotalPrice().toLocaleString('es-AR')}`;
 
-    /* listeners Eliminar */
+    // Listener para eliminar
     cont.querySelectorAll('button[data-idx]').forEach(btn =>
         btn.addEventListener('click', e => {
             removeIndex(+e.currentTarget.dataset.idx);
-            renderFull();             // re‑dibujamos
-            updateCartCount();
+            renderFull();
+            updateCartCount(); // 🔄 Actualiza contador después de eliminar
         })
     );
 }
@@ -97,7 +90,7 @@ export function hookVaciar(btn) {
             clearCart();
             renderFull();
             renderPreview();
-            updateCartCount();
+            updateCartCount(); // 🔄 Actualiza contador
         }
     });
 }
@@ -110,7 +103,6 @@ export function hookFinalizar(btn, url = 'pago.html') {
             alert('⚠️ Carrito vacío');
             return;
         }
-        // (Podés guardar algo en sessionStorage si querés)
         window.location.href = url;
     });
 }
@@ -118,7 +110,30 @@ export function hookFinalizar(btn, url = 'pago.html') {
 /* ============ 6. Helper para agregar desde tarjetas ============ */
 export function addFromCard(prodObj) {
     addItem(prodObj);
-    updateCartCount();
+    updateCartCount(); // 🔄 Actualiza contador al agregar
     renderPreview();
 }
-  
+
+/* ============ 7. Inicializador para index y carrito.html ============ */
+export function initCartUI() {
+    // Actualizar contador en header
+    updateCartCount();
+
+    // Si existe preview container, renderizar preview (index)
+    if (document.getElementById('cart-container')) {
+        renderPreview();
+    }
+
+    // Si existe carrito completo, renderizar lista y enganchar botones
+    if (document.getElementById('carrito-contenedor')) {
+        renderFull();
+    }
+
+    // Enganchar botón vaciar (si existe)
+    const btnVaciar = document.getElementById('btn-vaciar-carrito');
+    if (btnVaciar) hookVaciar(btnVaciar);
+
+    // Enganchar botón finalizar (si existe)
+    const btnFinalizar = document.getElementById('btn-finalizar-compra');
+    if (btnFinalizar) hookFinalizar(btnFinalizar);
+}

@@ -1,30 +1,57 @@
 /* Estilos Avanti */
-/* styles.css */
-/* styles.css - Archivo principal que importa todos los módulos de estilos */
+/* ----------------------------------------------
+   🧼 Reset: Estilos base que limpian el navegador
+---------------------------------------------- */
+@import url('./componentes/reset.css');
 
-/* styles.css */
-@import "componentes/reset.css";
-@import "componentes/variables.css";
-@import "componentes/background.css";
-@import "componentes/header.css";
-/*@import "componentes/grid.css";*/
-/*@import "componentes/forms.css";*/
-/*estos son dos archivos vacios estipulados para el orden de estos nuevos modulos*/
+/* ----------------------------------------------
+   🎨 Variables globales (colores, tipografía, etc.)
+---------------------------------------------- */
+@import url('./componentes/variables.css');
 
-@import url('componentes/slider.css');
-/*@import url('./componentes/footer.css');*/
-/*@import url('./componentes/hero-info.css');*/
-/*@import url('./componentes/productos.css');*/
-/*@import url('./componentes/marcas-categorias.css');*/
-/*@import url('./componentes/beneficios.css');*/
-/*@import url('./componentes/slider.css');*/
-/*@import url('./componentes/contacto.css');*/
+/* ----------------------------------------------
+   🧭 Estructura Principal
+---------------------------------------------- */
+@import url('./componentes/header.css');
+@import url('./componentes/slider.css');
+@import url('./componentes/background.css');
 
-/*@import url('./componentes/utilities.css');*/
-/*@import url('./componentes/carrito.css');*/
-/*@import url('./componentes/animations.css');*/
-/*@import url('./componentes/info.css');*/
-/*@import url('./componentes/whatsapp.css');*/
-/*@import url('./componentes/sidebar.css');*/
-/*@import url('./componentes/separadores.css');*/
-/*@import url('./componentes/iconos-productos.css');*/
+/* ----------------------------------------------
+   🛍️ Secciones de Catálogo y Productos
+---------------------------------------------- */
+@import url('./componentes/marcas-categorias.css');
+@import url('./componentes/iconos-productos.css');
+
+/* ----------------------------------------------
+   🌟 Separadores visuales entre secciones
+---------------------------------------------- */
+@import url('./componentes/separadores.css');
+
+/* ----------------------------------------------
+   👩‍🦰 Sección "Nosotras"
+---------------------------------------------- */
+@import url('./componentes/nosotras.css');
+/* ----------------------------------------------
+   📦 Como comprar
+---------------------------------------------- */
+@import url('./componentes/como-comprar.css');
+/* ----------------------------------------------
+   📦 Seccion contactos
+---------------------------------------------- */
+@import url('./componentes/contacto.css');
+/* ----------------------------------------------
+   🛒 Sección Carrito
+---------------------------------------------- */
+@import url('./componentes/carrito.css');
+/* ----------------------------------------------
+   📦 Sección Footer
+      ---------------------------------------------- */
+@import url('./componentes/footer.css');
+/* ----------------------------------------------
+   📦 Sección whatsapp
+---------------------------------------------- */
+@import url('./componentes/whatsapp.css');
+/* ----------------------------------------------
+   📦 Sección Modal de Login/Registro
+---------------------------------------------- */
+@import url('./componentes/login-modal.css');

@@ -1,11 +1,36 @@
-/* Variables personalizadas de color */
+/* =============================================
+   VARIABLES GLOBALES • Avanti Hair Salon
+============================================= */
+
 :root {
-    --av-bg-color: #0a3a41;
-    /* fondo verde claro */
-    --av-header-color: #0b292b;
-    /* encabezado verde oscuro */
-    --av-accent: #ea4b06;
-    /* color secundario (branding.pdf) */
-    --text-color: #ffffff;
-    --font-main: 'Montserrat', sans-serif;
+    /* 🎨 Colores institucionales */
+    --av-bg: #0a3a41;
+    /* Verde base principal */
+    --av-bg-dark: #0b292b;
+    /* Verde más oscuro (hover/fondo) */
+    --av-gold: #d4af37;
+    /* Dorado elegante para detalles */
+    --av-white: #ffffff;
+    /* Blanco puro */
+    --av-black: #111111;
+    /* Negro suave para textos oscuros */
+    --av-beige: #d1c6b7;
+    /* Fondo alternativo cálido */
+
+    /* 🌈 Transparencias y variantes */
+    --av-gold-soft: rgba(212, 175, 55, 0.2);
+    --av-gold-glow: rgba(212, 175, 55, 0.7);
+
+    /* ✒️ Tipografía principal */
+    --av-font: 'Montserrat', 'Poppins', sans-serif;
+
+    /* 📏 Espaciados */
+    --av-padding: 2rem;
+    --av-gap: 1.5rem;
+
+    /* 🔤 Tamaños de fuente sugeridos */
+    --font-title: 2rem;
+    --font-subtitle: 1.25rem;
+    --font-body: 1rem;
+    --font-small: 0.9rem;
 }

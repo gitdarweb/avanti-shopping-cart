@@ -1,17 +1,27 @@
-/* css/componentes/background.css */
+/* -------------------------------------------------
+   Background general para páginas interiores
+   css/componentes/background.css
+-------------------------------------------------- */
 
+/* 🌿 Fondo suave sin textura para el body */
 body {
-    background-color: var(--av-bg-color);
-    /* verde base */
-    background-image: url("/img/branding/fondo-de-portada.png");
-    background-repeat: repeat;
-    background-size: 1000px auto;
-    /* más grande para que no se repita tanto */
-    background-attachment: fixed;
+    background-color: #f5f5f5;
+    /* gris claro neutro */
+    color: #111;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Alternativa: Si preferís un verde suave */
+body.alt {
+    background-color: #e6f0ef;
+    /* variante clara del verde institucional */
+}
+
+/* Responsive opcional */
 @media (max-width: 768px) {
     body {
-        background-size: 500px auto;
+        font-size: 0.95rem;
     }
 }

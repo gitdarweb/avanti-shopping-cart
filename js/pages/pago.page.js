@@ -1,52 +1,43 @@
-// js/pages/pago.page.js
-import { getCarrito, clearCart } from '../cart/cart.js';
-import { updateCartCount } from '../cart/ui.js';
+function obtenerCarrito() {
+    const data = localStorage.getItem("carrito");
+    return data ? JSON.parse(data) : [];
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
+function renderizarResumenPago() {
+    const resumen = document.getElementById("resumen-pago");
+    const totalElemento = document.getElementById("total-pago");
+    const botonMP = document.getElementById("btn-mercadopago");
 
-    const resumen = document.getElementById('resumen');
-    const form = document.getElementById('form-pago');
-    const mensaje = document.getElementById('mensaje-enviado');
-    const carrito = getCarrito();
+    const carrito = obtenerCarrito();
+    resumen.innerHTML = "";
+    let total = 0;
 
-    // Mostrar resumen del carrito
-    if (resumen && carrito.length) {
-        let html = '<ul>';
-        let total = 0;
-        carrito.forEach(item => {
-            const subtotal = item.precio * item.cantidad;
-            html += `<li>${item.nombre} x${item.cantidad} = $${subtotal.toLocaleString('es-AR')}</li>`;
-            total += subtotal;
-        });
-        html += `</ul><p><strong>Total: $${total.toLocaleString('es-AR')}</strong></p>`;
-        resumen.innerHTML = html;
+    if (carrito.length === 0) {
+        resumen.innerHTML = "<p>No hay productos en el carrito.</p>";
+        botonMP.style.display = "none";
+        return;
     }
 
-    // Manejar envío
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const datos = new FormData(form);
+    carrito.forEach(producto => {
+        const item = document.createElement("div");
+        item.className = "pago-item";
 
-            try {
-                const res = await fetch(form.action, {
-                    method: 'POST',
-                    body: datos,
-                    headers: { 'Accept': 'application/json' }
-                });
+        item.innerHTML = `
+      <p><strong>${producto.nombre}</strong> (x${producto.cantidad})</p>
+      <p>$${(producto.precio * producto.cantidad).toLocaleString()}</p>
+    `;
 
-                if (!res.ok) throw new Error('Error al enviar');
+        resumen.appendChild(item);
+        total += producto.precio * producto.cantidad;
+    });
 
-                form.reset();
-                mensaje.classList.remove('oculto');
-                mensaje.classList.add('visible');
-                clearCart();
-                updateCartCount();
-            } catch (err) {
-                alert('❌ No se pudo enviar. Intente más tarde.');
-                console.error(err);
-            }
-        });
-    }
-});
+    totalElemento.textContent = `$${total.toLocaleString()}`;
+
+    // 🟡 ENLACE DE MERCADO PAGO (esto será reemplazado por uno real)
+    const enlaceMP = "https://mpago.la/tu-link-aqui"; // 👉 lo reemplazás más adelante
+
+    botonMP.href = enlaceMP;
+}
+
+// Ejecutar al cargar la página
+renderizarResumenPago();

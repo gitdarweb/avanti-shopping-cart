@@ -1,17 +1,81 @@
+/* ==========================================
+   SEPARADORES ANIMADOS AVANTI – Mejorados
+========================================== */
+
 .separador-avanti {
-    background-color: #f3fdfc;
-    padding: 2rem 1rem;
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #0D4B4C;
-    margin: 2rem 0;
-    border-top: 2px solid #cce5e3;
-    border-bottom: 2px solid #cce5e3;
-    font-family: 'Poppins', sans-serif;
+    padding: 2.5rem 1rem;
+    color: var(--av-white);
+    background-color: var(--av-bg);
+    font-family: var(--av-font);
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
+.separador-avanti.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ícono animado */
 .separador-avanti i {
-    margin-right: 0.5rem;
-    color: #EA4B06;
+    margin-right: 0.4rem;
+    font-size: 1.2rem;
+    color: #999;
+    animation: iconGlow 3s ease-in-out infinite;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.separador-avanti.visible i {
+    color: var(--av-gold);
+}
+
+/* Líneas doradas arriba y abajo */
+.linea-oro {
+    height: 3px;
+    width: 60px;
+    background-color: var(--av-gold);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* Separador visual sin texto */
+.separador-estilo {
+    height: 60px;
+    background: linear-gradient(to right, var(--av-bg), var(--av-bg-dark));
+    opacity: 0.6;
+    transition: all 1s ease;
+}
+
+/* Efecto glow dorado para el ícono */
+@keyframes iconGlow {
+    0% {
+        text-shadow: 0 0 4px rgba(200, 159, 101, 0.2);
+    }
+
+    50% {
+        text-shadow: 0 0 12px rgba(200, 159, 101, 0.8);
+    }
+
+    100% {
+        text-shadow: 0 0 4px rgba(200, 159, 101, 0.2);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .separador-avanti {
+        font-size: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .separador-estilo {
+        height: 40px;
+    }
 }

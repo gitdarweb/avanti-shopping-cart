@@ -1,0 +1,74 @@
+#como-comprar {
+    background-color: #D1C6B7;
+    /* 🎨 Mismo tono que la sección Nosotras */
+    color: var(--av-bg);
+    /* Verde oscuro para el texto */
+    text-align: center;
+    padding: 4rem 2rem;
+    font-family: var(--av-font);
+    position: relative;
+}
+
+#como-comprar .beneficio {
+    display: inline-block;
+    width: 280px;
+    margin: 1.5rem;
+    vertical-align: top;
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+}
+
+#como-comprar .beneficio img {
+    width: 70px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+#como-comprar .beneficio:hover img {
+    transform: scale(1.08);
+}
+
+#como-comprar h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--av-gold);
+    /* ✨ Detalle dorado */
+}
+
+#como-comprar p {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.explicacion-compra {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    font-size: 1rem;
+    color: var(--av-bg);
+    /* Verde oscuro para contraste */
+    line-height: 1.6;
+}
+
+/* ANIMACIÓN SUTIL */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #como-comprar .beneficio {
+        width: 100%;
+        max-width: 350px;
+        margin: 1.2rem auto;
+    }
+}

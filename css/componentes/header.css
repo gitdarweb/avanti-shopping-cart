@@ -4,40 +4,66 @@
 
 :root {
     --av-bg: #0a3a41;
-    /* verde claro de la diseñadora */
     --av-bg-dark: #0b292b;
-    /* verde más oscuro para hover */
     --av-gold: #d4af37;
-    /* dorado del logo */
     --av-white: #ffffff;
     --av-font: 'Montserrat', 'Poppins', sans-serif;
 }
 
-/* ⬇️  contenedor principal */
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 2rem;
+/* ========================
+     TOP BAR (barra superior)
+     ======================== */
+.top-bar {
     background-color: var(--av-bg);
-    background-image: url("/img/branding/fondo-de-portada.png");
-    background-size: 600px auto;
-    /* trama grande */
-    background-repeat: repeat;
+    color: var(--av-white);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    font-weight: 500;
     font-family: var(--av-font);
+    z-index: 40;
+    position: relative;
 }
 
-/* Logo */
+/* ========================
+     HEADER PRINCIPAL
+     ======================== */
+         .site-header {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             flex-wrap: wrap;
+             padding: 1rem 2rem;
+             min-height: 120px;
+    
+             background-color: var(--av-bg);
+             background-image: url("../../img/branding/fondo-texturado-comprimido.webp");
+             background-repeat: repeat-x;
+             background-size: 900px auto;
+             /* ✅ Tamaño fijo, sin deformar */
+             background-position: center top;
+    
+             font-family: var(--av-font);
+             color: var(--av-white);
+             position: relative;
+             z-index: 1;
+             text-align: center;     }
+
+/* ========== LOGO ========== */
 .site-header .logo img {
-    width: 120px;
+    width: 110px;
     height: auto;
 }
 
-/* ==== NAV principal ================================= */
+/* ========== NAV PRINCIPAL ========== */
 .main-nav ul {
     display: flex;
     gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-nav a {
@@ -52,12 +78,14 @@
     color: var(--av-gold);
 }
 
-/* ==== Zona usuario / carrito ======================== */
+/* ========== ZONA USUARIO + CARRITO ========== */
 .user-zone {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
     font-size: 0.95rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .user-zone a {
@@ -73,11 +101,20 @@
     font-weight: 600;
 }
 
-/* ==== Responsive simple ============================= */
+/* ========== BURGER MENU ========== */
+.burger {
+    display: none;
+}
+
+/* ========================
+     RESPONSIVE - Tablet
+     ======================== */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
+        background-size: 100% auto;
+        background-position: top center;
     }
 
     .main-nav ul {
@@ -90,12 +127,16 @@
         gap: 1rem;
     }
 }
-/* Oculto en desktop */
-.burger {
-    display: none;
-}
 
-@media (max-width:600px) {
+/* ========================
+     RESPONSIVE - Mobile
+     ======================== */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 1rem;
+        background-size: cover;
+    }
+
     .burger {
         display: block;
         background: none;
@@ -110,10 +151,9 @@
         height: 3px;
         margin: 5px 0;
         background: #fff;
-        transition: .3s;
+        transition: 0.3s;
     }
 
-    /* Navegación colapsada por defecto */
     .main-nav {
         display: none;
     }
@@ -121,4 +161,100 @@
     .main-nav.open {
         display: block;
     }
+
+    .logo img {
+        width: 100px;
+    }
+
+    .user-zone {
+        font-size: 0.9rem;
+    }
 }
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .site-header {
+        padding: 1.2rem;
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .logo img {
+        width: 110px;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+
+/* 🔧 Ajuste específico para tablets grandes tipo Surface */
+@media (min-width: 800px) and (max-width: 1024px) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+
+    .user-zone {
+        width: 100%;
+        justify-content: center;
+        order: 3;
+        margin-top: 0.5rem;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    nav.main-nav {
+        order: 2;
+        width: 100%;
+    }
+}
+
+/* ✅ NUEVO BLOQUE – Ajuste para pantallas de poca altura */
+@media (max-height: 600px) {
+    .site-header {
+        padding: 0.6rem 1rem;
+        background-size: cover;
+        min-height: 100px;
+    }
+
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+
+    .user-zone {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+}
+@media (max-width: 480px) {
+    .site-header {
+        background-size: cover;
+        background-position: top center;
+    } }
+        @media (max-width: 768px) {
+            .site-header {
+                background-size: 600px auto;
+                /* ✅ Más chico pero proporcional */
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .site-header {
+                background-size: 400px auto;
+                /* ✅ Evita que se corte o deforme */
+            }     }

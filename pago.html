@@ -4,62 +4,51 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pago | Avanti Hair Salon</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Finalizar compra | Avanti</title>
+    <meta name="description" content="Revisá y pagá tu compra de forma segura con Mercado Pago." />
+    <link rel="icon" href="img/branding/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
 <body>
-    <!-- ==== TOP BAR ==== -->
-    <div class="top-bar">
-        <p>Avanti Tienda Online | Productos Profesionales</p>
-    </div>
-    <!-- ==== HEADER NUEVO ==== -->
-    <header class="site-header">
-        <!-- Logo a la izquierda -->
-        <a href="index.html" class="logo">
-            <img src="img/branding/Logo-dorado.png" alt="Avanti Hair Salon">
-        </a>
-        <!-- Botón solo visible en mobile -->
-        <button class="burger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    
-        <!-- Menú horizontal -->
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#categorias">Catálogos</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#como-comprar">Cómo Comprar</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    
-        <!-- Carrito / login (derecha) -->
-        <div class="user-zone">
-    
-    
-            <a href="#">Ingresá | Registrate</a>
-            <a href="carrito.html" class="carrito-link">
-                🛒 <span id="cart-count">0</span>
-            </a>
-        </div>
-    </header>
-<!-- ✅ Fondo oscuro al abrir menú lateral -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-    <div class="top-bar">
-        <p>💳 Avanti Tienda Online – Confirmación de Compra</p>
-    </div>
+    <!-- HEADER dinámico -->
+    <div id="main-header"></div>
 
-    <main class="main-carrito" style="padding: 2rem;">
-        <h2>🧾 Resumen de tu compra</h2>
-        <div id="resumen-pago" class="info-sections"></div>
+    <main class="main-pago fade-in">
+        <section class="pago-container">
+            <h1>🧾 Confirmá tu Pedido</h1>
 
-        <button id="btn-pagar" class="btn-hero" style="margin-top: 1rem;">Pagar con Mercado Pago</button>
-        <br><br>
-        <a href="index.html" class="btn-action small">⬅ Volver al inicio</a>
+            <div id="resumen-pago" class="resumen-pago">
+                <!-- Renderizado con JS -->
+            </div>
+
+            <div class="pago-total">
+                <p>Total: <strong id="total-pago">$0</strong></p>
+
+                <!-- ✅ BOTÓN CON LINK A MERCADO PAGO -->
+                <a id="btn-mercadopago" href="#" class="btn-finalizar" target="_blank" rel="noopener">
+                    Pagar con Mercado Pago
+                </a>
+            </div>
+        </section>
     </main>
 
-    <script src="js/pago.js"></script>
+    <!-- FOOTER dinámico -->
+    <div id="main-footer"></div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { renderHeader } from './js/ui/header.js';
+        import { renderFooter } from './js/ui/footer.js';
+        renderHeader();
+        renderFooter();
+    </script>
+
+    <script type="module" src="js/pages/pago.page.js"></script>
 </body>
 
 </html>

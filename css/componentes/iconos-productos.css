@@ -1,75 +1,79 @@
-/* ============================
-   ICONOS PRODUCTOS - SECCIÓN
-   ============================ */
+/* ================================
+   ICONOS DE PRODUCTOS CATEGORÍA
+================================ */
+
 .iconos-productos {
+    text-align: center;
     padding: 2rem 1rem;
-    background-color: #fff;
-    margin-top: 2rem;
+    background-color: #f8f8f8;
 }
 
 .grid-iconos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto;
-    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 1rem;
 }
 
 .icono {
-    background-color: #fff;
-    border: 2px solid #98bfbf;
-    border-radius: 1rem;
-    padding: 0.75rem;
-    text-align: center;
-    width: 100px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.icono:hover {
-    border-color: #EA4B06;
-    box-shadow: 0 0 12px rgba(234, 75, 6, 0.3);
-    transform: translateY(-3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--av-bg);
+    font-weight: 500;
+    transition: transform 0.3s ease;
 }
 
 .icono img {
-    width: 42px;
-    height: 42px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.icono:hover {
+    transform: translateY(-5px);
+}
+
+.icono:hover img {
+    transform: scale(1.05);
 }
 
 .icono p {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: #0D4B4C;
+    font-size: 1rem;
     margin: 0;
-    text-align: center;
-    line-height: 1.2;
-    word-break: break-word;
 }
 
-/* Responsive ajustes si hiciera falta */
-@media (max-width: 480px) {
-    .icono {
-        width: 90px;
-        padding: 0.6rem;
+/* === RESPONSIVE === */
+@media (max-width: 1023px) {
+    .grid-iconos {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .icono img {
-        width: 38px;
-        height: 38px;
+        width: 90px;
+        height: 90px;
     }
 
     .icono p {
-        font-size: 0.75rem;
+        font-size: 0.95rem;
     }
 }
 
-.icono-acond {
-    transform: scale(0.9);
-}
+@media (max-width: 600px) {
+    .grid-iconos {
+        grid-template-columns: 1fr;
+    }
 
-.icono-acond p {
-    font-size: 0.8rem;
-}
+    .icono img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .icono p {
+        font-size: 0.9rem;
+    } }
