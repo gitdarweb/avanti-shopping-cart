@@ -30,7 +30,6 @@ export function renderFooter() {
             <li><a href="${prefix}index.html#contacto">Contacto</a></li>
           </ul>
         </div>
-
         <div class="footer-column legal">
           <h4>Legal</h4>
           <ul>
@@ -58,3 +57,4 @@ export function renderFooter() {
     </a>
   `;
 }
+/* */

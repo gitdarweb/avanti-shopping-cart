@@ -63,3 +63,4 @@ export function initSlider() {
 }
 // Nota: Asegúrate de que el HTML tenga un elemento con id="slider-track"
 // y varios elementos con la clase "dot" para los indicadores.
+/* */

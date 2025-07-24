@@ -26,3 +26,4 @@ document.addEventListener('DOMContentLoaded', () => {
         setupLoginModal();        // 7. Modal login/registro
     }, 0);
 });
+/* */

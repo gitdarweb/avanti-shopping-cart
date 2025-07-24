@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isCategoria = path.includes('/categorias/');
     const isMarca = path.includes('/marcas/');
     const nombre = path.split('/').pop().replace('.html', '');
-
+/* */
     // 4️⃣ Renderiza los productos según el tipo
     if (isCategoria) {
         renderizarProductosPor('categoria', nombre);

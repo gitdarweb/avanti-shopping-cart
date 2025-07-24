@@ -21,7 +21,7 @@ function renderizarCarrito() {
         totalElemento.textContent = "$0";
         return;
     }
-
+/* */
     carrito.forEach(producto => {
         const item = document.createElement("div");
         item.className = "carrito-item";

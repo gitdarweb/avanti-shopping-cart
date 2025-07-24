@@ -17,4 +17,4 @@ export const initFadeIn = () => {
 
     elems.forEach(el => io.observe(el));
 };
-  
+ /* */ 

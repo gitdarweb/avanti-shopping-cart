@@ -20,7 +20,7 @@ function renderizarProductos() {
 
     agregarEventos();
 }
-
+/* */
 function agregarEventos() {
     const botones = document.querySelectorAll(".btn-agregar");
 

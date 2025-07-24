@@ -48,3 +48,4 @@ function agregarAlCarrito(producto) {
 }
 
 renderizarProductos();
+/* */

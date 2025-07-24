@@ -34,3 +34,4 @@ export function setupLoginModal() {
         setupLoginModal(); // re-asociar evento después del innerHTML
     });
 }
+/* */

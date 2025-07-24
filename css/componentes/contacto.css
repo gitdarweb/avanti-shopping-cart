@@ -37,7 +37,8 @@
     display: inline-block;
     transition: background 0.3s, transform 0.3s;
 }
-
+/*===========================*/
+/**/
 .contact-icon:hover {
     transform: scale(1.1);
 }

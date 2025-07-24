@@ -5,7 +5,7 @@ Sitio web de venta de productos profesionales de peluquería y cuidado personal.
 ---
 
 ## 📁 Estructura del Proyecto
-
+<!-- ✅-->
 proyecto-avanti/
 ├── index.html ← Página principal
 ├── carrito.html ← Página dedicada al carrito

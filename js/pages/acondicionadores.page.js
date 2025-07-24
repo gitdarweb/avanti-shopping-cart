@@ -17,7 +17,7 @@ function renderizarProductos() {
 
         contenedor.appendChild(tarjeta);
     });
-
+/* */
     agregarEventos();
 }
 

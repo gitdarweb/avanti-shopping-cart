@@ -42,3 +42,4 @@ export function renderHeader() {
     contadorCarrito.textContent = carritoGuardado.length;
   }
 }
+/**/ 
